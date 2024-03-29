@@ -35,9 +35,4 @@
           - src_file: "/tmp/isolinux.cfg"
             dest_file: "/isolinux/isolinux.cfg"
  
-    delegate_to: localhost
 
-  - name: Another symbolic mode example, adding some permissions and removing others
-    ansible.builtin.copy:
-      src: /tmp/rhcos-4.12.30-x86_64-live.x86_64-customized.iso
-      dest: /tmp/rhcos-4.12.30-x86_64-live.x86_64-customized.iso
