@@ -1,2 +1,22 @@
 boot_timeout: 10
 server: test
+install_drive: sda
+machine_nics:
+  - eno0
+  - eno1
+
+vlan: 1205
+machine_ip: 5.5.5.5
+machine_net_gw: 1.1.1.1
+machine_net_mask: 255.255.255.0
+
+hostname: test
+
+base_dns_name: akbank.net
+
+nameserver:
+  - 1.1.1.1
+  - 2.2.2.2
+  - 3.3.3.3
+
+
