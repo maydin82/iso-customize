@@ -5,6 +5,8 @@
   become: true
   gather_facts: false
   tasks:
+  - name: block
+    block: 
     - name: Get the original ISO
       get_url:
         url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.12/latest/rhcos-4.12.30-x86_64-live.x86_64.iso"
@@ -32,3 +34,10 @@
             dest_file: "/EFI/redhat/grub.cfg"
           - src_file: "/tmp/isolinux.cfg"
             dest_file: "/isolinux/isolinux.cfg"
+ 
+    delegate_to: localhost
+
+  - name: Another symbolic mode example, adding some permissions and removing others
+    ansible.builtin.copy:
+      src: /tmp/rhcos-4.12.30-x86_64-live.x86_64-customized.iso
+      dest: /tmp/rhcos-4.12.30-x86_64-live.x86_64-customized.iso
