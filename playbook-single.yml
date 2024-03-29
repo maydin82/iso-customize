@@ -26,9 +26,6 @@
       community.general.iso_customize:
         src_iso: "/tmp/rhcos-4.12.30-x86_64-live.x86_64.iso"
         dest_iso: "/shared/rhcos-4.12.30-x86_64-live.x86_64-customized.iso"
-        delete_files:
-          - "/EFI/redhat/grub.cfg"
-          - "/isolinux/isolinux.cfg"
         add_files:
           - src_file: "/tmp/grub.cfg"
             dest_file: "/EFI/redhat/grub.cfg"
