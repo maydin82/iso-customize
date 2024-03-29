@@ -28,6 +28,6 @@
         src: /tmp/rhcos-4.12.30-x86_64-live.x86_64.iso
         path: /shared
         fstype: iso9660
-        opts: ro,noauto
+        opts: ro,noauto,uid=988,gid=988
         state: mounted
 
