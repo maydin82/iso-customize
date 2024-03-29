@@ -1,0 +1,33 @@
+---
+##########
+- name: Create ISO file under tmp dir
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+  - name: block
+    block: 
+    - name: Get the original ISO
+      get_url:
+        url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.12/latest/rhcos-4.12.30-x86_64-live.x86_64.iso"
+        dest: /tmp
+
+    - name: Relace the isolinux.cfg file (x86_64)
+      template:
+        src: "isolinux.cfg-single.j2"
+        dest: /tmp/isolinux.cfg
+  
+    - name: Relace the grub.cfg file (x86_64)
+      template:
+        src: "grub.cfg-single.j2"
+        dest: /tmp/grub.cfg
+
+
+    - name: Mount ISO
+      mount:
+        src: /tmp/rhcos-4.12.30-x86_64-live.x86_64.iso
+        path: /shared
+        fstype: iso9660
+        opts: ro,noauto
+        state: mounted
+
