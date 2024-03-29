@@ -24,6 +24,9 @@
       community.general.iso_customize:
         src_iso: "/tmp/rhcos-4.12.30-x86_64-live.x86_64.iso"
         dest_iso: "/tmp/rhcos-4.12.30-x86_64-live.x86_64-customized.iso"
+        delete_files:
+          - "/boot/grub/grub.cfg"
+          - "/isolinux/isolinux.cfg"
         add_files:
           - src_file: "/tmp/grub.cfg"
             dest_file: "/boot/grub/grub.cfg"
