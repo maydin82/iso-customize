@@ -1,7 +1,7 @@
 ---
 ##########
 - name: Create ISO file under tmp dir
-  hosts: all
+  hosts: localhost
   become: true
   gather_facts: false
   tasks:
